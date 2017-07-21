@@ -17,5 +17,14 @@
   "main": "app.js",
   "author": "",
   "license": "ISC",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/o-yusuke-od/plant.git"
+  },
+  "bugs": {
+    "url": "https://github.com/o-yusuke-od/plant/issues"
+  },
+  "homepage": "https://github.com/o-yusuke-od/plant#readme",
   "description": ""
 }
