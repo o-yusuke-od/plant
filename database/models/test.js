@@ -7,3 +7,4 @@ var sequelize = new Sequelize(config.database, config.username, config.password,
 sequelize.query('select * from m_plant',null,{raw:true}).then(m_plant =>{
     console.log(m_plant);
 });
+
