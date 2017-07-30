@@ -1,4 +1,4 @@
-'use strict'; 
+'use strict';
 const Sequelize = require('sequelize');
 const conf    = require('../../conf/sequelize.json');
 const sequelize = new Sequelize(conf.database, conf.username, conf.password,{host:conf.host,dialect:'mysql'});

@@ -1,24 +1,29 @@
-'use strict'; 
+'use strict';
 
-var module = require('../models/t_plant_data');
+const db = require('../models/t_plant_data');
 
-
-Promise.all([findById(2)]).then((value) => {
-    console.log("value");
-    console.log(value);
-}).catch(function () {
-    console.log('error');
-});
-
-function findById(id){
-    return new Promise((resolve,reject) => {
-        module.TPlant.findById(id).then(project => {
-            var t_plant = {
-                id:project.id,
-                temp:project.temp
-            }
-            res.send(t_plant);
+module.exports = {
+    findById:function(id){
+        return new Promise((resolve,reject) =>{
+            db.TPlant.findById(id).then(project => {
+                let t_plant = {
+                    id:project.id,
+                    temp:project.temp
+                }
+                resolve(t_plant);
+            })
         })
-    });
-}
+    },
+    findAll:function(){
+        return new Promise((resolve,reject) =>{
+            let t_plant = {
+                id:2,
+                temp:100
+            }
+            resolve(t_plant);
+        })
+    }
+};
+
+
 
