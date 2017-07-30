@@ -1,27 +1,38 @@
 'use strict';
 
-const db = require('../models/t_plant_data');
+const data = require('../models/t_plant_data');
+const name = require('../models/m_plant');
 
 module.exports = {
     findById:function(id){
         return new Promise((resolve,reject) =>{
-            db.TPlant.findById(id).then(project => {
+            data.TPlant.findOne({
+                limit :1,
+                where :{PlantId:id},
+                order:[['createdAt','DESC']]
+
+            }).then(project => {
                 let t_plant = {
                     id:project.id,
-                    temp:project.temp
+                    temp:project.temp,
+                    humidity:project.humidity,
+                    luminous:project.luminous,
+                    SoilHumidity:project.SoilHumidity,
+                    CreatedAt:project.CreatedAt
                 }
                 resolve(t_plant);
             })
         })
     },
-    findAll:function(){
+    findNameById:function(id){
         return new Promise((resolve,reject) =>{
-            let t_plant = {
-                id:2,
-                temp:100
-            }
-            resolve(t_plant);
-        })
+            name.MPlant.findById(id).then(project =>{
+                let m_plant ={
+                    name:project.name
+                }
+                resolve(m_plant);
+            })
+        });
     }
 };
 

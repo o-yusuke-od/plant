@@ -2,8 +2,9 @@ extends layout
 
 block content
   h1 detail
-  h1. data
-    ul
-      li
-         #{data.id}
-  h2 != data
+  p 名前: #{data[1].name}
+  p 温度: #{data[0].temp}
+  p 湿度: #{data[0].humidity}
+  p 土壌: #{data[0].luminous}
+  p 光度: #{data[0].SoilHumidity}
+  p 日時: #{data[0].CreatedAt}
