@@ -33,8 +33,13 @@ module.exports = {
                 resolve(m_plant);
             })
         });
+    },
+    createDHT:function(id,temp,humidity){
+        data.TPlant.create({
+            PlantId:id,
+            temp:temp,
+            humidity:humidity
+        })
     }
 };
-
-
 

@@ -3,6 +3,8 @@
     "password":"maria",
     "database": "plant",
     "host": "192.168.1.9",
-    "port": 3306
+    "port": 3306,
+    "dialect":"mysql",
+    "timezone":"+09:00"
 }
 

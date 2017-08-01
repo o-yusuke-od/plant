@@ -1,7 +1,7 @@
 'use strict';
 const Sequelize = require('sequelize');
 const conf    = require('../../conf/sequelize.json');
-const sequelize = new Sequelize(conf.database, conf.username, conf.password,{host:conf.host,dialect:'mysql'});
+const sequelize = new Sequelize(conf.database, conf.username, conf.password,{host:conf.host,dialect:conf.dialect,timezone:conf.timezone});
 
 const TPlant = sequelize.define('t_plant_data',{
     PlantId:Sequelize.INTEGER,
