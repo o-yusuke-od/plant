@@ -8,7 +8,10 @@ module.exports = {
         return new Promise((resolve,reject) =>{
             data.TPlant.findOne({
                 limit :1,
-                where :{PlantId:id},
+                where :{
+                    PlantId:id,
+                    deleted:0
+                },
                 order:[['createdAt','DESC']]
 
             }).then(project => {
