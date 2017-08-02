@@ -9,8 +9,11 @@ const TPlant = sequelize.define('t_plant_data',{
     humidity:Sequelize.INTEGER,
     luminous:Sequelize.INTEGER,
     SoilHumidity:Sequelize.INTEGER,
-    deleted:Sequelize.INTEGER
+    deleted:Sequelize.INTEGER,
+    CreatedAt:Sequelize.DATE,
+    UpdatedAt:Sequelize.DATE
 },{
+    timestamps:false,
     freezeTableName: true
 });
 

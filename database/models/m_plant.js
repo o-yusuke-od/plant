@@ -11,7 +11,10 @@ const MPlant = sequelize.define('m_plant',{
     luminous:Sequelize.INTEGER,
     SoilHumidity:Sequelize.INTEGER,
     deleted:Sequelize.INTEGER
+    CreatedAt:Sequelize.DATE,
+    UpdatedAt:Sequelize.DATE
 },{
+    timestamps:false,
     freezeTableName: true
 });
 
