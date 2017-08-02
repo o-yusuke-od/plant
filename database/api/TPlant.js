@@ -39,7 +39,9 @@ module.exports = {
             PlantId:id,
             temp:temp,
             humidity:humidity
-        })
+        }).then(function(){
+            process.exit(0);
+        });
     }
 };
 

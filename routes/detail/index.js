@@ -9,7 +9,6 @@ router.get('/:id',function(req,res,next) {
         TPlant.findNameById(req.params.id)
     ]).then(function(data) {
         res.render('detail',{data:data});
-        console.log(data);
     });
 });
 
