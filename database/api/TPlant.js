@@ -2,6 +2,7 @@
 
 const data = require('../models/t_plant_data');
 const name = require('../models/m_plant');
+const time = require('moment');
 
 module.exports = {
     findById:function(id){
@@ -24,6 +25,7 @@ module.exports = {
                     CreatedAt:project.CreatedAt
                 }
                 resolve(t_plant);
+                console.log(t_plant);
             })
         })
     },
@@ -41,7 +43,9 @@ module.exports = {
         data.TPlant.create({
             PlantId:id,
             temp:temp,
-            humidity:humidity
+            humidity:humidity,
+            CreatedAt:time().format(),
+            UpdatedAt:time().format()
         }).then(function(){
             process.exit(0);
         });

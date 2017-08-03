@@ -10,7 +10,7 @@ const MPlant = sequelize.define('m_plant',{
     humidity:Sequelize.INTEGER,
     luminous:Sequelize.INTEGER,
     SoilHumidity:Sequelize.INTEGER,
-    deleted:Sequelize.INTEGER
+    deleted:Sequelize.INTEGER,
     CreatedAt:Sequelize.DATE,
     UpdatedAt:Sequelize.DATE
 },{
