@@ -7,12 +7,16 @@ const bodyParser = require('body-parser');
 const index = require('./routes/top');
 const users = require('./routes/users');
 const detail = require('./routes/detail');
+const ECT = require('ect');
+const ectRenderer  = ECT({watch:true,root:__dirname+'/views',ext:'.ect'});
+
 
 const app = express();
 
 // view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
+app.set('view engine','ect');
+app.engine('ect',ectRenderer.render);
+
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));

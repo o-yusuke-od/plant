@@ -6,5 +6,3 @@ Promise.all([
     db.insertDHT()
 ]).then(function(){
 });
-
-
