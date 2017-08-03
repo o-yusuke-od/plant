@@ -25,7 +25,23 @@ module.exports = {
                     CreatedAt:project.CreatedAt
                 }
                 resolve(t_plant);
-                console.log(t_plant);
+            })
+        })
+    },
+    findListByDate:function(id,start_date,end_date){
+        return new Promise((resolve,reject) =>{
+            data.TPlant.findAll({
+                where :{
+                    PlantId:id,
+                    deleted:0,
+                    CreatedAt:{
+                        $gte:start_date,
+                        $lt:end_date
+                    }
+                }
+            }).then(project => {
+                 resolve(project);
+                 console.log(project[0].temp);
             })
         })
     },

@@ -1,0 +1,10 @@
+extends layout
+
+block content
+  p #{data[0]}
+  p #{data[0].id}
+  p #{data}
+  ul
+     for val, #{data}
+         li #{data} : #{val}
+  p #{data[0].t_plant_data}
