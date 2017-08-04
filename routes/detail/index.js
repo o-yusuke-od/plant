@@ -14,6 +14,7 @@ router.get('/:id',function(req,res,next) {
         res.render('detail',{data:data});
     });
 });
+
 router.get('/all/:id',function(req,res,next) {
     Promise.all([
         TPlant.findListByDate(req.params.id,start,end)

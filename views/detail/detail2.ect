@@ -1,0 +1,12 @@
+extends layout
+
+block content
+  h1 detail
+  p 名前: #{data[1].name}
+  p 温度: #{data[0].temp}
+  p 湿度: #{data[0].humidity}
+  p 土壌: #{data[0].luminous}
+  p 光度: #{data[0].SoilHumidity}
+  p 日付: #{data[0].CreatedAt.getMonth()+1}月#{data[0].CreatedAt.getDate()}日
+  p 時間: #{data[0].CreatedAt.getHours()}:#{data[0].CreatedAt.getMinutes()}
+  button(class='sendbutton', type='button', onclick='send()') 送信
