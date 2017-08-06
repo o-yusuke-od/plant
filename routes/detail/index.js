@@ -11,15 +11,10 @@ router.get('/:id',function(req,res,next) {
         TPlant.findById(req.params.id),
         TPlant.findNameById(req.params.id)
     ]).then(function(data) {
-        res.render('detail',{data:data});
-    });
-});
-
-router.get('/all/:id',function(req,res,next) {
-    Promise.all([
-        TPlant.findListByDate(req.params.id,start,end)
-    ]).then(function(data) {
-        res.render('detail_all',{data:data});
+        return res.render('detail',{
+           data1:data[0],
+           data2:data[1]
+        });
     });
 });
 
