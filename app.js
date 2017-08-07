@@ -7,6 +7,7 @@ const bodyParser = require('body-parser');
 const index = require('./routes/top');
 const users = require('./routes/users');
 const detail = require('./routes/detail');
+const about = require('./routes/about');
 const ECT = require('ect');
 const ectRenderer  = ECT({watch:true,root:__dirname+'/views',ext:'.ect'});
 
@@ -35,8 +36,10 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
 app.use('/', index);
 app.use('/detail/',detail);
+app.use('/about',about);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

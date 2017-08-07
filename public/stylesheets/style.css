@@ -74,7 +74,7 @@ div a img#x_image{
     width:900px;
     height:350px;
 }
-.parent{
+.parent {
     position: relative;
     height: 500px;
     width: 100%;
@@ -98,8 +98,14 @@ p.contents {
 div.info {
 }
 div.news {
-    border:solid 1px black;
     width:900px;
     height:100%;
     margin:auto;
+}
+
+/* * ABOUT  * */
+.wrapper {
+    position:relative;
+    height:1200px;
+    width:100%;
 }
