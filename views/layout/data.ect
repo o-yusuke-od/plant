@@ -2,6 +2,7 @@
 
 <div class='info'>
     <div class='news'>
+<<<<<<< HEAD
         <div class="ui horizontal segments">
 
             <div class="ui segment">
@@ -30,6 +31,23 @@
             </div>
 
         </div>
+=======
+        <h1>H1</h1>
+        <h1>id <%- @data.id %></h1>
+        <h1>名前 <%- @name %></h1>
+    </div>
+    <div class='news'>
+        <% for data in @data : %>
+		<h1><%- data.id %></h1>
+		<h1><%- data.temp %></h1>
+		<h1><%- data.humidity %> </h1>
+		<h1><%- data.luminous %> </h1>
+		<h1><%- data.SoilHumidity %> </h1>
+		<h1><%- data.CreatedAt %> </h1>
+        <% end %>
+    </div>
+    <div class='news'>
+>>>>>>> ca05a9219bf53324141773070e2f2ff9d0f45f15
     </div>
 
     <div class='warapper'>
