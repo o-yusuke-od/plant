@@ -40,8 +40,7 @@ module.exports = {
                     }
                 }
             }).then(project => {
-                 resolve(project);
-                 console.log(project[0].temp);
+                resolve(project);
             })
         })
     },

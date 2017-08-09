@@ -9,18 +9,18 @@ const users = require('./routes/users');
 const detail = require('./routes/detail');
 const about = require('./routes/about');
 const ECT = require('ect');
-const ectRenderer  = ECT({watch:true,root:__dirname+'/views',ext:'.ect'});
+const ectRenderer = ECT({watch:true,root:__dirname+'/views',ext:'.ect'});
 
 
 const app = express();
 
-//if ( app.get('env') === 'development' ) {
-//  var browserSync = require('browser-sync');
-//  var connectBrowserSync = require('connect-browser-sync');
-//
-//  var browserSyncConfigurations = { "files": "static/*" };
-//  app.use(connectBrowserSync(browserSync(browserSyncConfigurations)));
-//}
+if ( app.get('env') === 'development' ) {
+  var browserSync = require('browser-sync');
+  var connectBrowserSync = require('connect-browser-sync');
+
+  var browserSyncConfigurations = { "files": "static/*" };
+  app.use(connectBrowserSync(browserSync(browserSyncConfigurations)));
+}
 
 
 // view engine setup

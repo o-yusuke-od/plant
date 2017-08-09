@@ -1,18 +1,16 @@
-<script src="/canvasjs/canvasjs.min.js"></script>
-
+<script src='/canvasjs/canvasjs.min.js'></script>
 <div class='info'>
     <div class='news'>
-<<<<<<< HEAD
         <div class="ui horizontal segments">
 
             <div class="ui segment">
                 <p>温度</p>
-                <p><%- @new_data.temp %></p>
+                <p><%- @new_data.temp %>℃</p>
             </div>
 
             <div class="ui segment">
                 <p>湿度</p>
-                <p><%- @new_data.humidity %></p>
+                <p><%- @new_data.humidity %>%</p>
             </div>
 
             <div class="ui segment">
@@ -22,36 +20,19 @@
 
             <div class="ui segment">
                 <p>土壌湿度</p>
-                <p><%- @new_data.SoilHumidity %></p>
+                <p><%- @new_data.SoilHumidity %>%</p>
             </div>
 
             <div class="ui segment">
                 <p>測定日時</p>
-                <p><%- @new_data.Created %></p>
+                <p><%- @new_time %></p>
             </div>
 
         </div>
-=======
-        <h1>H1</h1>
-        <h1>id <%- @data.id %></h1>
-        <h1>名前 <%- @name %></h1>
-    </div>
-    <div class='news'>
-        <% for data in @data : %>
-		<h1><%- data.id %></h1>
-		<h1><%- data.temp %></h1>
-		<h1><%- data.humidity %> </h1>
-		<h1><%- data.luminous %> </h1>
-		<h1><%- data.SoilHumidity %> </h1>
-		<h1><%- data.CreatedAt %> </h1>
-        <% end %>
-    </div>
-    <div class='news'>
->>>>>>> ca05a9219bf53324141773070e2f2ff9d0f45f15
     </div>
 
-    <div class='warapper'>
-        <div id="chartContainer" style="height:300px;width:300px;"></div>
+    <div class='wrapper'>
+        <div id="chartContainer" style="height:400px;width:860px;"></div>
     </div>
 
 </div>
@@ -59,8 +40,7 @@
         window.onload = function () {
             var chart = new CanvasJS.Chart("chartContainer", {
                 title: {
-                    text: "Site Traffic",
-                    fontSize: 30
+                    fontSize: 20
                 },
                 animationEnabled: true,
                 axisX: {
@@ -71,7 +51,7 @@
                 toolTip: {
                     shared: true
                 },
-                theme: "theme2",
+                theme: "theme3",
                 axisY: {
                     gridColor: "Silver",
                     tickColor: "silver"

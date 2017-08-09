@@ -105,7 +105,8 @@ div.news {
 
 /* * ABOUT  * */
 .wrapper {
-    position:relative;
-    height:1200px;
-    width:100%;
+    width:900px;
+    height:100%;
+    margin:auto;
+    margin-top:80px;
 }
