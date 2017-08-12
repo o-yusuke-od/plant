@@ -3,29 +3,29 @@
     <div class='news'>
         <div class="ui horizontal segments">
 
-            <div class="ui segment">
+            <div class="ui center aligned segment">
                 <p>温度</p>
-                <p><%- @new_data.temp %>℃</p>
+                <p id="text_center"><%- @new_data.temp %>℃</p>
             </div>
 
-            <div class="ui segment">
+            <div class="ui center aligned segment">
                 <p>湿度</p>
-                <p><%- @new_data.humidity %>%</p>
+                <p id="text_center"><%- @new_data.humidity %>%</p>
             </div>
 
-            <div class="ui segment">
+            <div class="ui center aligned segment">
                 <p>光度</p>
-                <p><%- @new_data.luminous %></p>
+                <p id="text_center"><%- @new_data.luminous %></p>
             </div>
 
-            <div class="ui segment">
+            <div class="ui center aligned segment">
                 <p>土壌湿度</p>
-                <p><%- @new_data.SoilHumidity %>%</p>
+                <p id="text_center"><%- @new_data.SoilHumidity %>%</p>
             </div>
 
-            <div class="ui segment">
+            <div class="ui center aligned segment">
                 <p>測定日時</p>
-                <p><%- @new_time %></p>
+                <p id="text_center"><%- @new_time %></p>
             </div>
 
         </div>
@@ -37,24 +37,38 @@
 
 </div>
 <script type="text/javascript">
+        var data = <%- JSON.stringify(@data) %>;
         window.onload = function () {
+
+            var data_temp = [{}];
+            var data_humidity = [{}];
+            var data_soil_humidity = [{}];
+            var data_luminous = [{}];
+
+            Object.keys(data).forEach(function(val){
+                data_temp[val] ={"x":val,"y":data[val]["temp"]};
+                data_humidity[val] = {"x":val,"y":data[val]["humidity"]};
+                data_luminous[val] = {"x":val,"y":data[val]["luminous"]};
+                data_soil_humidity[val] = {"x":val,"y":data[val]["SoilHumidity"]};
+            });
             var chart = new CanvasJS.Chart("chartContainer", {
                 title: {
-                    fontSize: 20
+                    fontSize: 15
                 },
                 animationEnabled: true,
                 axisX: {
                     gridColor: "Silver",
                     tickColor: "silver",
-                    valueFormatString: "DD/MMM"
+                    interval:1,
+                    maximum:24,
                 },
                 toolTip: {
-                    shared: true
+                    shared: true,
                 },
                 theme: "theme3",
                 axisY: {
                     gridColor: "Silver",
-                    tickColor: "silver"
+                    tickColor: "silver",
                 },
                 legend: {
                     verticalAlign: "center",
@@ -65,43 +79,37 @@
                     type: "line",
                     showInLegend: true,
                     lineThickness: 2,
-                    name: "Visits",
-                    markerType: "square",
-                    color: "#F08080",
-                    dataPoints: [
-                    { x: new Date(2010, 0, 3), y: 650 },
-                    { x: new Date(2010, 0, 5), y: 700 },
-                    { x: new Date(2010, 0, 7), y: 710 },
-                    { x: new Date(2010, 0, 9), y: 658 },
-                    { x: new Date(2010, 0, 11), y: 734 },
-                    { x: new Date(2010, 0, 13), y: 963 },
-                    { x: new Date(2010, 0, 15), y: 847 },
-                    { x: new Date(2010, 0, 17), y: 853 },
-                    { x: new Date(2010, 0, 19), y: 869 },
-                    { x: new Date(2010, 0, 21), y: 943 },
-                    { x: new Date(2010, 0, 23), y: 970 }
-                    ]
+                    name: "温度℃",
+                    markerType: "triangle",
+                    color: "#ff0000",
+                    dataPoints: data_temp
                 },
                 {
                     type: "line",
                     showInLegend: true,
-                    name: "Unique Visits",
-                    color: "#20B2AA",
                     lineThickness: 2,
-
-                    dataPoints: [
-                        { x: new Date(2010, 0, 3), y: 510 },
-                        { x: new Date(2010, 0, 5), y: 560 },
-                        { x: new Date(2010, 0, 7), y: 540 },
-                        { x: new Date(2010, 0, 9), y: 558 },
-                        { x: new Date(2010, 0, 11), y: 544 },
-                        { x: new Date(2010, 0, 13), y: 693 },
-                        { x: new Date(2010, 0, 15), y: 657 },
-                        { x: new Date(2010, 0, 17), y: 663 },
-                        { x: new Date(2010, 0, 19), y: 639 },
-                        { x: new Date(2010, 0, 21), y: 673 },
-                        { x: new Date(2010, 0, 23), y: 660 }
-                    ]
+                    name: "湿度%",
+                    markerType: "triangle",
+                    color: "#0000ff",
+                    dataPoints: data_humidity
+                },
+                {
+                    type: "line",
+                    showInLegend: true,
+                    lineThickness: 2,
+                    name: "光度",
+                    markerType: "triangle",
+                    color: "#ffff00",
+                    dataPoints: data_luminous
+                },
+                {
+                    type: "line",
+                    showInLegend: true,
+                    lineThickness: 2,
+                    name: "土壌湿度%",
+                    markerType: "triangle",
+                    color: "#d2b48c",
+                    dataPoints: data_soil_humidity
                 }
                 ],
                 legend: {
