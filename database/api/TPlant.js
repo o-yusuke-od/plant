@@ -5,6 +5,22 @@ const name = require('../models/m_plant');
 const time = require('moment');
 
 module.exports = {
+    findId:function(){
+        return new Promise((resolve,reject) =>{
+            data.MPlant.findAll({
+                where:{
+                    deleted:0
+                }
+            }).then(project => {
+            console.log(project);
+                let m_plant ={
+                    id:project.id,
+                    name:project.name
+                }
+                resolve(m_plant);
+            })
+        })
+    },
     findById:function(id){
         return new Promise((resolve,reject) =>{
             data.TPlant.findOne({

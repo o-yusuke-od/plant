@@ -1,9 +1,18 @@
-var express = require('express');
-var router = express.Router();
+'use strict';
+
+const express = require('express');
+const router = express.Router();
+const TPlant = require('../../database/api/TPlant.js');
+
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  return res.render('index', { title: 'Express' });
+    TPlant.findId().then(function(data){
+        console.log(data);
+        return res.render('index',{
+            data:data
+        });
+    });
 });
 
 module.exports = router;
