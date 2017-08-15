@@ -1,16 +1,14 @@
 <div id="body-bk">
-<script type="text/javascript">
-    var data = <%- JSON.stringify(@data) %>;
-    console.log(data);
-</script>
+    <% for data in @data : %>
     <div class="parent">
         <div class="inner">
-            <a href="/detail/1" class="ui rounded aligned image">
-                <img id="x_image" class="ui center"src="/img/image1.jpg">
+            <a href="/detail/<%- data.id %>" class="ui rounded aligned image">
+                <img id="x_image" class="ui center"src="/img/image<%- data.id %>.jpg">
             </a>
-            <i class='large text'>aico / mini tomato</i>
+            <i class='large text'><%- data.name %> / mini tomato</i>
         </div>
     </div>
+    <% end %>
 
     <div class="parent">
         <div class="inner">
