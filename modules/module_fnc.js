@@ -7,10 +7,10 @@ module.exports = {
     },
     yyyy:function(date) {
         let yyyy = date.getFullYear();
-        let mm = pad(2,date.getMonth() + 1);
-        let dd = pad(2,date.getDate());
-        let hh = pad(2,date.getHours());
-        let mi = pad(2,date.getMinutes());
+        let mm = this.pad(2,date.getMonth() + 1);
+        let dd = this.pad(2,date.getDate());
+        let hh = this.pad(2,date.getHours());
+        let mi = this.pad(2,date.getMinutes());
         return yyyy + '/' + mm + '/'+ dd +' '+hh + ':' + mi;
     }
 }
