@@ -3,7 +3,7 @@
 const express = require('express');
 const router = express.Router();
 const TPlant = require('../../database/api/TPlant.js');
-const pad = require('../../modules/to_double_digits');
+const fnc = require('../../modules/module_fnc.js');
 const time = require('moment');
 const start = time().format("YYYY-MM-DD")+ " 00:00:00";
 const end = time().add(1,'day').format("YYYY-MM-DD")+" 00:00:00";
@@ -19,19 +19,9 @@ router.get('/:id',function(req,res,next) {
             name:data[0].name,
             data:data[1],
             new_data:new_data,
-            new_time:yyyy(new_data.CreatedAt)
+            new_time:fnc.yyyy(new_data.CreatedAt)
         });
     });
 });
-
-let yyyy = function(date) {
-    let yyyy = date.getFullYear();
-    let mm = pad(date.getMonth() + 1);
-    let dd = pad(date.getDate());
-    let hh = pad(date.getHours());
-    let mi = pad(date.getMinutes());
-
-    return yyyy + '/' + mm + '/'+ dd +' '+hh + ':' + mi;
-};
 
 module.exports = router;
