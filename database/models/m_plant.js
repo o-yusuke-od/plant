@@ -7,6 +7,7 @@ const sequelize = new Sequelize(conf.database, conf.username, conf.password,{hos
 const MPlant = sequelize.define('m_plant',{
     name:Sequelize.STRING,
     temp:Sequelize.INTEGER,
+    genre:Sequelize.STRING,
     humidity:Sequelize.INTEGER,
     luminous:Sequelize.INTEGER,
     SoilHumidity:Sequelize.INTEGER,
