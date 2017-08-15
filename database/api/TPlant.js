@@ -7,17 +7,12 @@ const time = require('moment');
 module.exports = {
     findId:function(){
         return new Promise((resolve,reject) =>{
-            data.MPlant.findAll({
+            name.MPlant.findAll({
                 where:{
                     deleted:0
                 }
             }).then(project => {
-            console.log(project);
-                let m_plant ={
-                    id:project.id,
-                    name:project.name
-                }
-                resolve(m_plant);
+                resolve(project);
             })
         })
     },

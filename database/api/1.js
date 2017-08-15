@@ -16,5 +16,6 @@ var end = time().add(1,'day').format("YYYY-MM-DD")+" 00:00:00";
 //});
 
 db.findId().then(function(data) {
-    console.log(data);
+    console.log(data[0].id);
 });
+
