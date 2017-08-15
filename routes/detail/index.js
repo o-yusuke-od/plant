@@ -3,7 +3,7 @@
 const express = require('express');
 const router = express.Router();
 const TPlant = require('../../database/api/TPlant.js');
-const pad = require('modules/to_double_digits');
+const pad = require('../../modules/to_double_digits');
 const time = require('moment');
 const start = time().format("YYYY-MM-DD")+ " 00:00:00";
 const end = time().add(1,'day').format("YYYY-MM-DD")+" 00:00:00";
