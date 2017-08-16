@@ -13,13 +13,13 @@ const ectRenderer = ECT({watch:true,root:__dirname+'/views',ext:'.ect'});
 
 const app = express();
 
-if ( app.get('env') === 'development' ) {
-  let browserSync = require('browser-sync');
-  let connectBrowserSync = require('connect-browser-sync');
-
-  let browserSyncConfigurations = { "files": "static/*" };
-  app.use(connectBrowserSync(browserSync(browserSyncConfigurations)));
-}
+//if ( app.get('env') === 'development' ) {
+//  let browserSync = require('browser-sync');
+//  let connectBrowserSync = require('connect-browser-sync');
+//
+//  let browserSyncConfigurations = { "files": "static/*" };
+//  app.use(connectBrowserSync(browserSync(browserSyncConfigurations)));
+//}
 
 
 // view engine setup
