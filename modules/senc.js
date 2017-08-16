@@ -1,7 +1,7 @@
 'use strict';
 
 const rpiDhtSensor = require('rpi-dht-sensor');
-const db = require('../database/api/TPlant'); 
+const db = require('../database/api'); 
 const dht = new rpiDhtSensor.DHT11(2);
 const conf = require('../conf/sens.json');
 
