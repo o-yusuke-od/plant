@@ -12,9 +12,9 @@ module.exports = {
         let temp = 0;
 
         process.on('count', function(c) {
-            if (c > 10) {
-              humidity = humidity/11;
-              temp = temp/11;
+            if (c > 30) {
+              humidity = humidity/31;
+              temp = temp/31;
               db.createDHT(conf.express,temp,humidity);
               return;
             }
