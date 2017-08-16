@@ -5,7 +5,6 @@ const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const index = require('./routes/top');
-const users = require('./routes/users');
 const detail = require('./routes/detail');
 const about = require('./routes/about');
 const ECT = require('ect');
@@ -14,14 +13,14 @@ const ectRenderer = ECT({watch:true,root:__dirname+'/views',ext:'.ect'});
 
 const app = express();
 
-//if ( app.get('env') === 'development' ) {
-//  var browserSync = require('browser-sync');
-//  var connectBrowserSync = require('connect-browser-sync');
-//
-//  var browserSyncConfigurations = { "files": "static/*" };
-//  app.use(connectBrowserSync(browserSync(browserSyncConfigurations)));
-//}
-//
+if ( app.get('env') === 'development' ) {
+  let browserSync = require('browser-sync');
+  let connectBrowserSync = require('connect-browser-sync');
+
+  let browserSyncConfigurations = { "files": "static/*" };
+  app.use(connectBrowserSync(browserSync(browserSyncConfigurations)));
+}
+
 
 // view engine setup
 app.set('view engine','ect');
@@ -42,7 +41,7 @@ app.use('/about',about);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
-  var err = new Error('Not Found');
+  let err = new Error('Not Found');
   err.status = 404;
   next(err);
 });
