@@ -2,7 +2,7 @@
 
 const express = require('express');
 const router = express.Router();
-const TPlant = require('../../database/api/TPlant.js');
+const api = require('../../database/api');
 const fnc = require('../../modules/module_fnc.js');
 const time = require('moment');
 const start = time().format("YYYY-MM-DD")+ " 00:00:00";
@@ -10,8 +10,8 @@ const end = time().add(1,'day').format("YYYY-MM-DD")+" 00:00:00";
 
 router.get('/:id',function(req,res,next) {
     Promise.all([
-        TPlant.findNameById(req.params.id),
-        TPlant.findListByDate(req.params.id,start,end)
+        api.findNameById(req.params.id),
+        api.findListByDate(req.params.id,start,end)
     ]).then(function(data) {
         let new_data = data[1][data[1].length-1];
 

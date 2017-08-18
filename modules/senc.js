@@ -1,7 +1,7 @@
 'use strict';
 
 const rpiDhtSensor = require('rpi-dht-sensor');
-const db = require('../database/api/TPlant'); 
+const db = require('../database/api'); 
 const dht = new rpiDhtSensor.DHT11(2);
 const conf = require('../conf/sens.json');
 
@@ -12,9 +12,9 @@ module.exports = {
         let temp = 0;
 
         process.on('count', function(c) {
-            if (c > 10) {
-              humidity = humidity/11;
-              temp = temp/11;
+            if (c > 30) {
+              humidity = humidity/31;
+              temp = temp/31;
               db.createDHT(conf.express,temp,humidity);
               return;
             }

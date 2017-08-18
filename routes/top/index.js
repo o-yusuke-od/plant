@@ -2,13 +2,13 @@
 
 const express = require('express');
 const router = express.Router();
-const TPlant = require('../../database/api/TPlant.js');
+const api = require('../../database/api');
 
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-    const top_data =[{}];
-    TPlant.findId().then(function(data){
+    let top_data =[{}];
+    api.findId().then(function(data){
         Object.keys(data).forEach(function(val) {
             top_data[val] = {
                 "id":data[val]["id"],
